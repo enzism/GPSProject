@@ -123,4 +123,4 @@ Utilise NetworkX pour calculer le plus court chemin entre les deux points (pond√
 - [FastAPI](https://fastapi.tiangolo.com)
 - [OSMnx](https://osmnx.readthedocs.io/en/stable/)
 - [NetworkX](https://networkx.org)
-- [Leaflet.js](https://leafletjs.com)
+- [Leaflet.js](https://leafletjs.com/examples/quick-start/) (contient des explications sur la cr√©ation du index.html)

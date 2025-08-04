@@ -22,6 +22,7 @@ app.add_middleware(
 
 # --- Chargement du graphe OSM ---
 print("[INFO] Chargement du graphe OSM...")
+# Filtres servant à choisir le type de route autorisées par l'itinéraire
 custom_filter = (
     '["highway"]'
     '["area"!~"yes"]'

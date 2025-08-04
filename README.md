@@ -112,8 +112,7 @@ Utilise NetworkX pour calculer le plus court chemin entre les deux points (pond�
 
 ## 🛠️ TODO
 
-- 📌 Ajouter un front-end (ex: carte Leaflet.js pour cliquer et générer des routes)
-
+- Modifier le planificateur pour lui permettre de traverser les zone protégées comme les calanques
 - 🏔️ Intégrer le dénivelé dans le calcul (pondérer par l’effort)
 
 - 🛏️ Afficher les hébergements à proximité d’un itinéraire
@@ -121,6 +120,7 @@ Utilise NetworkX pour calculer le plus court chemin entre les deux points (pond�
 - 📈 Stocker les itinéraires et stats dans une base de données (ex: PostgreSQL/PostGIS)
 
 ## 🧠 Technologies
-- FastAPI
-- OSMnx
-- NetworkX
+- [FastAPI](https://fastapi.tiangolo.com)
+- [OSMnx](https://osmnx.readthedocs.io/en/stable/)
+- [NetworkX](https://networkx.org)
+- [Leaflet.js](https://leafletjs.com)

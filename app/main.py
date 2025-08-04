@@ -6,6 +6,7 @@ from pydantic import BaseModel
 import osmnx as ox
 import networkx as nx
 from typing import Tuple, List
+import json
 
 # --- Initialisation de l'application ---
 app = FastAPI(title="Itinéraire Cyclable API", version="1.0")
@@ -21,12 +22,29 @@ app.add_middleware(
 
 # --- Chargement du graphe OSM ---
 print("[INFO] Chargement du graphe OSM...")
-GRAPH = ox.graph_from_place("Grenoble, France", network_type='bike')
+custom_filter = (
+    '["highway"]'
+    '["area"!~"yes"]'
+    '["highway"!~"motorway|motorway_link|trunk|trunk_link|raceway"]'
+    '["access"!~"private"]'
+)
+
+GRAPH = ox.graph_from_place("Marseille, France")#, custom_filter=custom_filter)
 
 # --- Modèle de requête ---
 class RouteRequest(BaseModel):
     origin: Tuple[float, float]       # (latitude, longitude)
     destination: Tuple[float, float]
+
+# Charger la zone de la ville (polygone)
+print("[INFO] Chargement du polygone de la zone...")
+gdf = ox.geocode_to_gdf("Marseille, France")
+city_polygon_geojson = json.loads(gdf.to_json())
+
+@app.get("/zone")
+async def get_zone():
+    """Retourne le polygone GeoJSON de la zone de la ville."""
+    return JSONResponse(content=city_polygon_geojson)
 
 # --- Endpoint principal ---
 @app.post("/route")

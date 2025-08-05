@@ -20,11 +20,15 @@ L'utilisateur envoie une requête POST à l'API avec deux points (origine et des
 
 ## 📂 Structure du projet
 ```bash
-planificateur/
-├── app/
-│   └── main.py            # Code principal de l'API FastAPI
-├── requirements.txt       # Dépendances Python
-└── README.md              # Ce fichier
+GPSProject/
+├── app/                  # Backend FastAPI
+├── static/               # Frontend (HTML/JS/CSS séparés)
+├── routing/              # Logique de calcul d’itinéraire
+├── notebooks/            # Explorations, démos, machine learning
+├── tests/                # Tests unitaires
+├── README.md             # Présentation claire du projet
+└── Dockerfile            # Environnement reproductible
+
 ```
 
 ## ⚙️ Prérequis

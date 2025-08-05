@@ -5,9 +5,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from app.models import RouteRequest
 from app.routing import build_graph_around, compute_route
+from fastapi.staticfiles import StaticFiles
+
 
 # --- Initialisation de l'application ---
 app = FastAPI(title="Itinéraire Cyclable API", version="1.0")
+# FastAPI sert les fichiers statiques (static/ ...html, ...js, ...css)
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 # --- Middleware CORS ---
 app.add_middleware(

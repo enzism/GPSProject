@@ -1,8 +1,8 @@
-# 🚲 Planificateur d’Itinéraire Cyclable (Prototype)
+#  Planificateur d’Itinéraire Cyclable (Prototype)
 
 Ce projet est un prototype d'API web pour le calcul d'itinéraires cyclables, basé sur OpenStreetMap et OSMnx.
 
-### 🧭 Objectif final
+###  Objectif final
 Créer une application web de planification d’itinéraire de bikepacking :
 - Multijour, avec suggestion automatique d’étapes.
 - Destinée à plusieurs profils (cyclotouristes, sportifs, ultra).
@@ -18,7 +18,7 @@ L'application repose sur trois briques principales :
 - NetworkX : librairie Python pour la manipulation de graphes, utilisée ici pour calculer le plus court chemin entre deux noeuds du réseau.
 L'utilisateur envoie une requête POST à l'API avec deux points (origine et destination), et reçoit en retour une liste de coordonnées représentant l'itinéraire.
 
-## 📂 Structure du projet
+##  Structure du projet
 ```bash
 GPSProject/
 ├── app/                  # Backend FastAPI
@@ -31,11 +31,11 @@ GPSProject/
 
 ```
 
-## ⚙️ Prérequis
+##  Prérequis
 - Python 3.8+
 - pip
 
-## 📦 Installation
+##  Installation
 ```bash
 git clone https://github.com/enzism/GPSProject.git
 cd GPSProject
@@ -44,13 +44,13 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## 🚀 Lancement du serveur
+##  Lancement du serveur
 ```bash
 uvicorn app.main:app --reload
 ```
 L’API est accessible sur : http://localhost:8000/docs
 
-### 📬 Exemple de requête
+###  Exemple de requête
 ```python
 POST /route
 {
@@ -59,7 +59,7 @@ POST /route
 }
 ```
 
-### 📤 Réponse attendue
+### Réponse attendue
 ```python
 {
   "route": [
@@ -70,7 +70,7 @@ POST /route
 }
 ```
 
-## 🔍 Explication du code (fichier main.py)
+## Explication du code (fichier main.py)
 1. Initialisation de l'application
 ```python
 app - FastAPI(...)
@@ -99,13 +99,13 @@ nx.shortest_path(GRAPH, orig_node, dest_node, weight='length')
 ```
 Utilise NetworkX pour calculer le plus court chemin entre les deux points (pondéré par la distance réelle).
 
-## 🛠️ TODO
+## TODO
 - Modifier le planificateur pour lui permettre de traverser les zone protégées comme les calanques
-- 🏔️ Intégrer le dénivelé dans le calcul (pondérer par l’effort)
-- 🛏️ Afficher les hébergements à proximité d’un itinéraire
-- 📈 Stocker les itinéraires et stats dans une base de données (ex: PostgreSQL/PostGIS)
+- Intégrer le dénivelé dans le calcul (pondérer par l’effort)
+- Afficher les hébergements à proximité d’un itinéraire
+- Stocker les itinéraires et stats dans une base de données (ex: PostgreSQL/PostGIS)
 
-## 🧠 Technologies
+## Technologies
 - [FastAPI](https://fastapi.tiangolo.com)
 - [OSMnx](https://osmnx.readthedocs.io/en/stable/)
 - [NetworkX](https://networkx.org)
